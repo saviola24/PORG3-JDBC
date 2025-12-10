@@ -1,13 +1,15 @@
 package hei.school;
 
 import java.time.Instant;
+import java.util.Arrays;
 
-public class product {
+public class Product {
     private int id;
     private String name;
     private double price;
     private Instant creationDateTime;
-    private String categoryName;  // exactement comme dans le diagramme
+    private String[] categoryNames; // demandé dans le schéma du TD
+
 
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
@@ -16,18 +18,13 @@ public class product {
     public double getPrice() { return price; }
     public void setPrice(double price) { this.price = price; }
     public Instant getCreationDateTime() { return creationDateTime; }
-    public void setCreationDateTime(Instant creationDateTime) { this.creationDateTime = creationDateTime; }
-
-    public String getCategoryName() {
-        return categoryName != null ? categoryName : "";
-    }
-    public void setCategoryName(String categoryName) {
-        this.categoryName = categoryName;
-    }
+    public void setCreationDateTime(Instant d) { this.creationDateTime = d; }
+    public String[] getCategoryNames() { return categoryNames; }
+    public void setCategoryNames(String[] a) { this.categoryNames = a; }
 
     @Override
     public String toString() {
-        return String.format("Product{id=%d, name='%s', price=%.2f, creation=%s, category='%s'}",
-                id, name, price, creationDateTime, getCategoryName());
+        return "Product{id=" + id + ", name='" + name + "', price=" + price +
+                ", creation=" + creationDateTime + ", categories=" + Arrays.toString(categoryNames) + "}";
     }
 }

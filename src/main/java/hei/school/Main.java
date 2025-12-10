@@ -1,17 +1,30 @@
 package hei.school;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.time.Instant;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        DataRetriever dr = new DataRetriever();
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        System.out.println("=== 7.a getAllCategories ===");
+        dr.getAllCategories().forEach(System.out::println);
+
+        System.out.println("\n=== 7.b getProductList ===");
+        int[][] pages = {{1,10}, {1,5}, {1,3}, {2,2}};
+        for (int[] p : pages) {
+            System.out.println("\nPage " + p[0] + " | Size " + p[1]);
+            dr.getProductList(p[0], p[1]).forEach(System.out::println);
         }
+
+        System.out.println("\n=== 7.c getProductsByCriteria (sans pagination ===");
+        // tous les cas du grand tableau
+        dr.getProductsByCriteria("Dell", null, null, null).forEach(System.out::println);
+        dr.getProductsByCriteria(null, "info", null, null).forEach(System.out::println);
+        // etc pour les 8 lignes du tableau
+
+        System.out.println("\n=== 7.d getProductsByCriteria avec pagination ===");
+        dr.getProductsByCriteria(null, null, null, null, 1, 10).forEach(System.out::println);
+        dr.getProductsByCriteria("Dell", null, null, null, 1, 5).forEach(System.out::println);
+        dr.getProductsByCriteria(null, "informatique", null, null, 1, 10).forEach(System.out::println);
     }
 }
