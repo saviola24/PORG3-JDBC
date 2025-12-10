@@ -1,4 +1,4 @@
--- Table Product
+
 INSERT INTO product (name, price, creation_datetime) VALUES
                                                          ('Laptop Dell XPS', 4500.00, '2024-01-15 09:30:00'),
                                                          ('iPhone 13', 5200.00, '2024-02-01 14:00:00'),
@@ -6,7 +6,7 @@ INSERT INTO product (name, price, creation_datetime) VALUES
                                                          ('Clavier Logitech', 180.00, '2024-03-08 11:20:00'),
                                                          ('Ecran Samsung 27"', 1200.00, '2024-03-18 08:00:00');
 
--- Table Product_category
+
 INSERT INTO product_category (name, product_id) VALUES
                                                     ('Informatique', 1),
                                                     ('Téléphonie', 2),

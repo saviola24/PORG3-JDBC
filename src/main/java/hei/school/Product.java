@@ -8,7 +8,7 @@ public class Product {
     private String name;
     private double price;
     private Instant creationDateTime;
-    private String[] categoryNames; // demandé dans le schéma du TD
+    private String[] categoryNames;
 
 
     public int getId() { return id; }

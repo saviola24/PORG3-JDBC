@@ -17,10 +17,9 @@ public class Main {
         }
 
         System.out.println("\n=== 7.c getProductsByCriteria (sans pagination ===");
-        // tous les cas du grand tableau
+
         dr.getProductsByCriteria("Dell", null, null, null).forEach(System.out::println);
         dr.getProductsByCriteria(null, "info", null, null).forEach(System.out::println);
-        // etc pour les 8 lignes du tableau
 
         System.out.println("\n=== 7.d getProductsByCriteria avec pagination ===");
         dr.getProductsByCriteria(null, null, null, null, 1, 10).forEach(System.out::println);
